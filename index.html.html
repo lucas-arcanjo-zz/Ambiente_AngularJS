@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR" ng-app="cadClientes">
+
 <head>
     <meta charset="UTF-8">
     <title>Cadastro de Clientes</title>
@@ -8,16 +9,20 @@
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
     <script>
         angular.module("cadClientes", []);
-        angular.module("cadClientes").controller("cadClientesCrtl", 
-        function($scope) {
-            $scope.app = "Cadastro de Clientes"
-            $scope.clientes = [
-                {nome: "Lucas", codigo: "1914"},
-                {nome: "Aline", codigo: "2015"},
-            ];
-        });
+        angular.module("cadClientes").controller("cadClientesCrtl",
+            function ($scope) {
+                $scope.app = "Cadastro de Clientes"
+                $scope.clientes = [
+                    { nome: "Lucas", codigo: "1914" },
+                    { nome: "Aline", codigo: "2015" },
+                ];
+                $scope.adicionarCliente = function() {
+                    $scope.clientes.push({nome: $scope.nome, codigo: $scope.codigo})
+                }
+            });
     </script>
 </head>
+
 <body ng-controller="cadClientesCrtl">
     <div class="jumbotron">
         <h3>{{app}}</h3>
@@ -31,6 +36,13 @@
                 <td>{{cliente.codigo}}</td>
             </tr>
         </table>
+        <hr>
+        <div class="formulario">
+            <input class="form-control" type="text" ng-model="nome" placeholder="Nome">
+            <input class="form-control" type="text" ng-model="codigo" placeholder="Código">
+            <button class="btn btn-primary btn-block" ng-click="adicionarCliente()">Adicionar Cliente</button>
+        </div>
     </div>
 </body>
+
 </html>

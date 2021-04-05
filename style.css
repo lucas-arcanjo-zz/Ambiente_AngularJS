@@ -5,10 +5,14 @@
      margin-right: auto; 
      margin-top: 15px; 
      background-color: #e9ecef; 
-     padding: 2rem 1rem; 
-     justify-content: center;
+     padding-left: 20px;
+     padding-right: 20px;
 }
 
 .table {
-    margin-top: 20px;
+    margin-top: 15px;
+}
+
+.form-control {
+    margin-bottom: 10px;
 }
