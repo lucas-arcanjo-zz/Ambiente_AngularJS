@@ -16,8 +16,9 @@
                     { nome: "Lucas", codigo: "1914" },
                     { nome: "Aline", codigo: "2015" },
                 ];
-                $scope.adicionarCliente = function(cliente) {
+                $scope.adicionarCliente = function (cliente) {
                     $scope.clientes.push(angular.copy(cliente))
+                    delete $scope.cliente
                 }
             });
     </script>
@@ -40,7 +41,7 @@
         <div class="formulario">
             <input class="form-control" type="text" ng-model="cliente.nome" placeholder="Nome">
             <input class="form-control" type="text" ng-model="cliente.codigo" placeholder="Código">
-            <button class="btn btn-primary btn-block" ng-click="adicionarCliente(cliente)">Adicionar Cliente</button>
+            <button class="btn btn-primary btn-block" ng-click="adicionarCliente(cliente)" ng-disabled="!cliente.nome || !cliente.codigo">Adicionar Cliente</button>
         </div>
     </div>
 </body>
