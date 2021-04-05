@@ -1,0 +1,8 @@
+https://angularjs.org/ === site oficial do angularJS
+https://plnkr.co/ === ambiente de desenvolvimento a
+do browse
+
+Na maior parte do tempo, o angulaJS nos permite desenvolver
+na propria web, utilizando o plunker, para que funcione
+é necessário sempre adicionar um `script` em nosso HTML
+e uma tag `ng-app`, que é um diretiva do angular.
