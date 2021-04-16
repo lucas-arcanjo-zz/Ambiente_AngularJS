@@ -15,11 +15,25 @@
                 $scope.clientes = [
                     { nome: "Lucas", codigo: "1914" },
                     { nome: "Aline", codigo: "2015" },
+                    { nome: "Pedro", codigo: "2002" },
                 ];
+
+                $scope.tipoClientes = [
+                    {tipo: "Pessoa Física", codigo: "01", local: "Nacional"},
+                    {tipo: "Pessoa Jurídica", codigo: "02", local: "Nacional"},
+                    {tipo: "Sócios", codigo: "03", local: "Nacional"},
+                    {tipo: "Exportador", codigo: "04", local: "internacional"},
+                    {tipo: "Importador", codigo: "05", local: "internacional"},
+                ]
+
                 $scope.adicionarCliente = function (cliente) {
                     $scope.clientes.push(angular.copy(cliente))
                     delete $scope.cliente
                 }
+
+                $scope.classe1 = "selecionado";
+                $scope.classe2 = "negrito";
+
             });
     </script>
 </head>
@@ -27,22 +41,37 @@
 <body ng-controller="cadClientesCrtl">
     <div class="jumbotron">
         <h3>{{app}}</h3>
-        <table class="table table-striped">
+        <table class="table">
             <tr>
+                <th></th>
                 <th>Nome</th>
                 <th>Código</th>
+                <th>Tipo Cliente</th>
             </tr>
-            <tr ng-repeat="cliente in clientes">
+            <tr ng-class="{selecionado: cliente.selecionado}" ng-repeat="cliente in clientes">
+                <td><input type="checkbox" ng-model="cliente.selecionado"></td>
                 <td>{{cliente.nome}}</td>
                 <td>{{cliente.codigo}}</td>
+                <td>{{cliente.tipoClientes.tipo}}</td>
             </tr>
         </table>
         <hr>
+        {{cliente}}
         <div class="formulario">
             <input class="form-control" type="text" ng-model="cliente.nome" placeholder="Nome">
             <input class="form-control" type="text" ng-model="cliente.codigo" placeholder="Código">
+            <select class="form-control" 
+            ng-model="cliente.tipoClientes" 
+            ng-options="tipoCliente.tipo group by tipoCliente.local for tipoCliente in tipoClientes">
+                <option value="">Selecione um tipo de cliente</option>
+
+
+            </select>
+
             <button class="btn btn-primary btn-block" ng-click="adicionarCliente(cliente)" ng-disabled="!cliente.nome || !cliente.codigo">Adicionar Cliente</button>
         </div>
+
+     
     </div>
 </body>
 

@@ -16,3 +16,11 @@
 .form-control {
     margin-bottom: 10px;
 }
+
+.selecionado {
+    background-color: rgb(178, 178, 218);
+}
+
+.negrito {
+    font-weight: bold;
+}
